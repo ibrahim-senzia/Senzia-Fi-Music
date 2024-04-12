@@ -13,7 +13,7 @@ const commentForm = document.getElementById('comment-form');
 const commentsList = document.getElementById('list');
 const heartButton = document.getElementById('heart');
 const playButton = document.getElementById('play-button');
-const audioPlayer = document.getElementById('audio-player');
+
 let currentTime = 0;
 
 commentForm.addEventListener('submit', (e) => {
@@ -37,18 +37,23 @@ playButton.addEventListener('click', () => {
   }
 });
 
+
+// Add event listener to audio player to update current song display
+const audioPlayer = document.getElementById('audio-player');
+audioPlayer.addEventListener('play', () => {
+  const songName = document.getElementById('song-name');
+  const songDuration = document.getElementById('song-duration');
+  songName.textContent = audioPlayer.currentSrc.split('/').pop();
+  songDuration.textContent = `${audioPlayer.duration} seconds`;
+});
+
 audioPlayer.addEventListener('timeupdate', () => {
   currentTime = audioPlayer.currentTime;
 });
 
-
 let songs = [];
 let playlists = [];
 let currentPlaylist = null;
-
-addSongButton.addEventListener('click', () => {
-  songInput.click();
-});
 
 addSongButton.addEventListener('click', () => {
   songInput.click();
@@ -90,6 +95,25 @@ stopButton.addEventListener('click', () => {
   pauseButton.disabled = true;
   playButton.disabled = false;
   stopButton.disabled = true;
+});
+
+const forwardInput = document.getElementById('forward-input');
+const backInput = document.getElementById('back-input');
+
+forwardInput.addEventListener('input', () => {
+  const newTime = currentTime + parseFloat(forwardInput.value);
+  if (newTime < audioPlayer.duration) {
+    currentTime = newTime;
+    audioPlayer.currentTime = currentTime;
+  }
+});
+
+backInput.addEventListener('input', () => {
+  const newTime = currentTime - parseFloat(backInput.value);
+  if (newTime >= 0) {
+    currentTime = newTime;
+    audioPlayer.currentTime = currentTime;
+  }
 });
 
 audioPlayer.addEventListener('ended', () => {
@@ -172,7 +196,12 @@ loadPlaylistButton.addEventListener('click', () => {
 });
 
 //selecting the list element where the comments will be displayed:
-const commentList = document.getElementById('list');
+commentInput.addEventListener('input', () => {
+  const comment = commentInput.value;
+  const commentElement = document.createElement('p');
+  commentElement.textContent = comment;
+  commentList.appendChild(commentElement);
+});
 
 //selecting the comment-input element where the user will enter their comment:
 const commentInput = document.getElementById('comment-input');

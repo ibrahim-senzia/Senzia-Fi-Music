@@ -16,17 +16,16 @@
         <button id="play-button">Play</button>
         <button id="pause-button" disabled>Pause</button>
         <button id="stop-button" disabled>Stop</button>
+        <button id="next-button">Next</button>
+        <button id="previous-button">Previous</button>
         <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
-        <br>
-        <audio id="audio-player" src="" preload="auto"></audio>
-        <br>
-        <div class="playlist">
-          <button id="create-playlist-button">Create Playlist</button>
-          <input type="text" id="playlist-input" placeholder="Enter playlist name">
-          <button id="save-playlist-button" disabled>Save Playlist</button>
-          <button id="load-playlist-button" disabled>Load Playlist</button>
-        </div>
-        <select id="playlist-selector" disabled></select>
+        <div id="playlist-songs"></div>
+     <audio id="audio-player" src="" controls></audio>
+
+  <input type="range" id="forward-input" min="0" max="10" value="0" step="1" />
+  <label for="forward-input">Move Forward (seconds)</label>
+  <input type="range" id="back-input" min="0" max="10" value="0" step="1" />
+  <label for="back-input">Move Backward (seconds)</label>
       </div>
 
       <div>
