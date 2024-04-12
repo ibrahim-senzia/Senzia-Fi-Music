@@ -196,12 +196,7 @@ loadPlaylistButton.addEventListener('click', () => {
 });
 
 //selecting the list element where the comments will be displayed:
-commentInput.addEventListener('input', () => {
-  const comment = commentInput.value;
-  const commentElement = document.createElement('p');
-  commentElement.textContent = comment;
-  commentList.appendChild(commentElement);
-});
+const commentList = document.getElementById('list');
 
 //selecting the comment-input element where the user will enter their comment:
 const commentInput = document.getElementById('comment-input');
