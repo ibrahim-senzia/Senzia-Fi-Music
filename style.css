@@ -37,7 +37,11 @@ select {
 }
 
 #submit{
-    padding: 3px;
+    padding: 3px;   
+}
+
+.comments p {
+  color: #4a86e8;
 }
 
 footer{

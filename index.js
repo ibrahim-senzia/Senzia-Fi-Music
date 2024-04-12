@@ -1,15 +1,46 @@
 const addSongButton = document.getElementById('add-song-button');
 const songInput = document.getElementById('song-input');
-const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
 const stopButton = document.getElementById('stop-button');
 const volumeSlider = document.getElementById('volume-slider');
-const audioPlayer = document.getElementById('audio-player');
 const createPlaylistButton = document.getElementById('create-playlist-button');
 const playlistInput = document.getElementById('playlist-input');
 const savePlaylistButton = document.getElementById('save-playlist-button');
 const loadPlaylistButton = document.getElementById('load-playlist-button');
 const playlistSelector = document.getElementById('playlist-selector');
+
+const commentForm = document.getElementById('comment-form');
+const commentsList = document.getElementById('list');
+const heartButton = document.getElementById('heart');
+const playButton = document.getElementById('play-button');
+const audioPlayer = document.getElementById('audio-player');
+let currentTime = 0;
+
+commentForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const comment = commentInput.value;
+  const commentElement = document.createElement('p');
+  commentElement.textContent = comment;
+  commentsList.appendChild(commentElement);
+  commentInput.value = '';
+});
+
+heartButton.addEventListener('click', () => {
+  const songName = document.getElementById('song-name');
+  songName.textContent = 'Loves this song';
+});
+
+playButton.addEventListener('click', () => {
+  if (audioPlayer.paused) {
+    audioPlayer.currentTime = currentTime;
+    audioPlayer.play();
+  }
+});
+
+audioPlayer.addEventListener('timeupdate', () => {
+  currentTime = audioPlayer.currentTime;
+});
+
 
 let songs = [];
 let playlists = [];
@@ -18,6 +49,14 @@ let currentPlaylist = null;
 addSongButton.addEventListener('click', () => {
   songInput.click();
 });
+
+addSongButton.addEventListener('click', () => {
+  songInput.click();
+  const fileName = songInput.files[0].name;
+  const songNameElement = document.getElementById('song-name');
+  songNameElement.textContent = fileName;
+});
+
 
 songInput.addEventListener('change', (event) => {
   const files = event.target.files;
@@ -107,6 +146,18 @@ savePlaylistButton.addEventListener('click', () => {
   if (playlist) {
     playlist.songs = songs.slice();
     alert('Playlist saved!');
+  }
+});
+
+
+const playlistSongs = document.getElementById('playlist-songs');
+
+songInput.addEventListener('change', (event) => {
+  const files = event.target.files;
+  for (const file of files) {
+    const song = document.createElement('div');
+    song.textContent = file.name;
+    playlistSongs.appendChild(song);
   }
 });
 
