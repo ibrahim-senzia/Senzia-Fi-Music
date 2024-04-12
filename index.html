@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senzia Music Player</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <div id="player">
+        <button id='heart' > ❤️ </button>
+      <button id="add-song-button">Add Song</button>
+      <input type="file" id="song-input" multiple>
+      <button id="play-button">Play</button>
+      <button id="pause-button" disabled>Pause</button>
+      <button id="stop-button" disabled>Stop</button>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+      <br>
+      <audio id="audio-player" src="" preload="auto"></audio>
+      <br>
+       <div class="playlist">
+         <button id="create-playlist-button">Create Playlist</button>
+         <input type="text" id="playlist-input" placeholder="Enter playlist name">
+         <button id="save-playlist-button" disabled>Save Playlist</button>
+         <button id="load-playlist-button" disabled>Load Playlist</button>
+      </div>
+      <select id="playlist-selector" disabled></select>
+
+    </div>
+
+    <div>
+    <h3>Comments</h3>
+    <div id='list' class='comments'></div>
+
+    <h3>Leave a comment</h3>
+
+    <form id="comment-form" action="">
+      <input type='text' name="comment" id="comment-input" cols="30" rows="10">
+      </br>
+      <button id='submit'>submit</button>
+    </form>
+
+  </div>
+  
+    </main>
+
+    <footer>
+        &copy; 2024 SenSiFI Music Player. All rights reserved.
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
