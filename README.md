@@ -9,6 +9,12 @@ To get started with SenSiFI Music Player, simply download and extract the files 
 
 ## Usage
 Adding and Playing Songs To add songs to the player, click the "Add Song" button and select the songs you want to add. Once you've added some songs, click the "Play" button to start playing them. You can pause, stop, and adjust the volume of the songs using the provided buttons.
+If you want this repository to be available in your machine locally, you can do the following:
+1.) git clone git@github.com:ibrahim-senzia/Senzia-Fi-Music.git  <- run this code in your terminal.
+after that navigate in your machine using:
+2.) ls
+3.) if the the file is visible in the (home) section of your machine run:
+->cd Senzia-Fi-Music 
 
 # Creating Playlists
 To create a playlist, click the "Create Playlist" button and enter a name for the playlist. Then, add some songs to the playlist by selecting them from the list of available songs. Once you've added some songs, click the "Save Playlist" button to save the playlist. You can load a saved playlist by selecting it from the "Load Playlist" dropdown menu.
