@@ -1,40 +1,48 @@
 body{
-    background-image: url(john-matychuk-gUK3lA3K7Yo-unsplash.jpg);
+    background-image:  url(mohammad-metri-1oKxSKSOowE-unsplash.jpg);
     background-position: center;
-    background-size: 150%;
+    background-size: cover;
     font-family: 'Courier New', Courier, monospace;
     box-sizing: border-box;
 }
 
 #player {
-  width: 400px;
-  margin-top: 23px;
-  margin: 0 auto;
-  background-color: transparent;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgb(17, 0, 255);
-}
-
-#controls {
+  width: 13%;
+  color: cadetblue;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
-#track-info {
-  margin-bottom: 20px;
+button {  
+  margin: 5px;
+  color: rgb(48, 43, 37);
+  border-radius: 24%;
+  box-sizing: border-box;
 }
 
-#progress-container {
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 5px;
-  margin-bottom: 20px;
+audio {
+  width: 50%;
 }
 
-#progress {
-  height: 100%;
-  background-color: #06140b;
-  border-radius: 5px;
+h3{
+    color: chartreuse;
+}
+
+select {
+  margin: 5px;
+}
+#playlist{
+    color: antiquewhite;
+}
+
+#submit{
+    padding: 3px;
+}
+
+footer{
+    color: rgb(243, 239, 236);
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
