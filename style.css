@@ -148,3 +148,20 @@ footer{
     align-items: center;
     justify-content: center;
 }
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.animated-text {
+  animation: 8s ease-out 0s 1 slidein;
+  color: #00fd08;
+}

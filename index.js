@@ -25,10 +25,11 @@ commentForm.addEventListener('submit', (e) => {
   commentInput.value = '';
 });
 
-heartButton.addEventListener('click', () => {
+// Function to handle liking a song
+function likeSong() {
   const songName = document.getElementById('song-name');
-  songName.textContent = 'Loves this song';
-});
+  songName.textContent = 'Liked this song';
+}
 
 playButton.addEventListener('click', () => {
   if (audioPlayer.paused) {
@@ -36,7 +37,6 @@ playButton.addEventListener('click', () => {
     audioPlayer.play();
   }
 });
-
 
 // Add event listener to audio player to update current song display
 const audioPlayer = document.getElementById('audio-player');
@@ -144,59 +144,11 @@ class Playlist {
   }
 }
 
-//Modify the createPlaylistButton while click event listener it create a new Playlist object and add it to the playlists array:
-createPlaylistButton.addEventListener('click', () => {
-  const playlistName = playlistInput.value;
-  const playlist = new Playlist(playlistName);
-  playlists.push(playlist);
-  playlistInput.value = '';
-  savePlaylistButton.disabled = false;
-  loadPlaylistButton.disabled = false;
-  playlistSelector.disabled = false;
-  playlistSelector.innerHTML = '';
-  playlists.forEach((playlist) => {
-    const option = document.createElement('option');
-    option.value = playlist.name;
-    option.textContent = playlist.name;
-    playlistSelector.add(option);
-  });
-});
 
-
-//Modifying the savePlaylistButton  while you click, an event listener is processed to save the current playlist:
-savePlaylistButton.addEventListener('click', () => {
-  const selectedPlaylist = playlistSelector.value;
-  const playlist = playlists.find((playlist) => playlist.name === selectedPlaylist);
-  if (playlist) {
-    playlist.songs = songs.slice();
-    alert('Playlist saved!');
-  }
-});
-
-
-const playlistSongs = document.getElementById('playlist-songs');
-
-songInput.addEventListener('change', (event) => {
-  const files = event.target.files;
-  for (const file of files) {
-    const song = document.createElement('div');
-    song.textContent = file.name;
-    playlistSongs.appendChild(song);
-  }
-});
-
-//Modifying the loadPlaylistButton while clicking event listener loads a saved playlist:
-loadPlaylistButton.addEventListener('click', () => {
-  const selectedPlaylist = playlistSelector.value;
-  const playlist = playlists.find((playlist) => playlist.name === selectedPlaylist);
-  if (playlist) {
-    songs = playlist.songs.slice();
-    alert('Playlist loaded!');
-  }
-});
 
 //selecting the list element where the comments will be displayed:
 const commentList = document.getElementById('list');
 
 //selecting the comment-input element where the user will enter their comment:
 const commentInput = document.getElementById('comment-input');
+
